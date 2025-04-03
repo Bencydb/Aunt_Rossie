@@ -1,0 +1,479 @@
+
+/*aunt rossie*/
+
+/* Reset body to use flex layout */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    background: #471111;
+}
+
+
+/* Sidebar styles */
+.sidebar {
+    width: 300px; /* Adjust width as needed */
+    color :#471111;
+    background-color: #fff07d;
+    border-right: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    position: fixed;
+    height: 100vh; /* Ensures full height */
+    top: 0;
+    left: 0;
+    overflow-y: auto; /* Allows scrolling if content overflows */
+}
+
+
+/* Navbar brand styles */
+.sidebar .navbar-brand {
+    padding: 30px 30px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Nav link styles */
+.nav-link {
+    padding: 10px 20px; /* Reduce padding to fit links to the left */
+    color: #471111;
+    text-decoration: none;
+    text-align: left; /* Ensure text is aligned to the left */
+}
+
+.nav-link:hover {
+    background-color: #fdf6d8;
+}
+
+/* Push content next to the sidebar */
+main {
+    margin-left: 250px;
+    padding: 20px;
+    width: calc(100% - 250px); /* Ensure content doesn't overflow */
+    overflow-x: hidden;
+    flex: 1; /* Pushes the footer down */
+}
+
+
+/* Login Container */
+.login {
+    background-color: #ffffff;
+    padding: 3rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    margin: 100px auto;
+    animation: fadeIn 1s ease-out;
+}
+
+
+/* Heading Styling */
+.login h1 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Form Input Styling */
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group-addon {
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.input-group-addon i {
+    color: #4CAF50;
+    font-size: 20px;
+}
+
+.form-control {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Input Focus Effect */
+.form-control:focus {
+    border-color: #4CAF50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+/* Login Button Styling */
+button {
+    width: 88%;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 5px;
+    margin: 10px 1%;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+button#loginButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+}
+
+button#loginButton:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+button#cancelButton {
+    background-color: #ff9800;
+    color: white;
+    border: none;
+}
+
+button#cancelButton:hover {
+    background-color: #e68900;
+    transform: scale(1.05);
+}
+
+
+/* Message Area */
+#messageArea {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    display: none;
+}
+nav {
+    font-family: "Spicy Rice", serif;
+    /*background: #471111;*/
+    padding: 10px;
+    text-align: center;
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+}
+h1, h2 {
+    font-family: "Spicy Rice", serif;
+    color: #E5C07B;
+}
+.variety,p{
+    font-size: 1rem;
+    font-family: "Quicksand", serif;
+    color: #FFFFFF;
+}
+ol {
+    padding-left: 90px;
+}
+/* Home Page Layout */
+.home-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1200px;
+}
+
+/* Left Side: Text Content */
+.text-content {
+    flex: 0.8;
+    text-align: left;
+}
+/* Right Side: Scrollable Image Gallery */
+.image-gallery {
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+}
+
+.gallery-wrapper {
+    display: flex;
+    gap: 15px;
+    animation: bounce-scroll 7s ease-in-out infinite;
+}
+
+.gallery-wrapper img {
+    width: 250px;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Smooth Scrolling Effect */
+@keyframes bounce-scroll {
+    0% { transform: translateX(0); }
+    50% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
+}
+/*menu page*/
+
+/* Container for tables */
+.table-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+/* Table styling */
+table {
+    width: 80%;
+    max-width: 900px;
+    border-collapse: collapse;
+    margin: 20px auto;
+    background-color: #fff07d; /* Warm yellow background */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Table headers */
+table thead {
+    background-color: #471111;
+    color: #fff07d;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+
+/* Table header and data cell styling */
+table th, table td {
+    padding: 12px;
+    border-bottom: 2px solid #471111;
+    text-align: left;
+    font-size: 16px;
+}
+
+/* Alternating row colors */
+table tbody tr:nth-child(even) {
+    background-color: #ffeda0; /* Lighter yellow */
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: #fff07d; /* Base yellow */
+}
+
+/* Hover effect */
+table tbody tr:hover {
+    background-color: #ffcc66;
+    transition: 0.3s ease-in-out;
+}
+
+
+/* Image Styling */
+table td img {
+    width: 70px;
+    height: auto;
+    border-radius: 5px;
+    border: 2px solid #471111;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    table {
+        width: 100%;
+    }
+
+    table th, table td {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    table td img {
+        width: 50px;
+    }
+}
+.category-heading {
+    background-color: #471111; /* Dark Maroon */
+}
+table td img {
+    width: 120px;  /* Increase width */
+    height: auto;  /* Maintain aspect ratio */
+    border-radius: 8px;  /* Slightly rounded edges */
+    border: 3px solid #471111;  /* Dark maroon border */
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.3);  /* Soft shadow */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect to slightly enlarge the image */
+table td img:hover {
+    transform: scale(1.1); /* Slight zoom-in effect */
+}
+
+
+
+/* Main container styling */
+.container.nutrition-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 15px;
+}
+
+/* Both detail sections common styling */
+#NutritionDetail, #IngredientsDetail {
+    flex: 1;
+    min-width: 300px;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#NutritionDetail:hover, #IngredientsDetail:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Nutrition Detail specific styling */
+#NutritionDetail {
+    background: linear-gradient(135deg, #fff07d 0%, #ffd166 100%);
+    color: #3a0a0a;
+    margin-right: 10px;
+}
+
+/* Ingredients Detail specific styling */
+#IngredientsDetail {
+    background: linear-gradient(135deg, #a8dadc 0%, #457b9d 100%);
+    color: #1d3557;
+    margin-left: 10px;
+}
+
+/* Heading styling for both sections */
+#NutritionDetail h2, #IngredientsDetail h2 {
+    font-size: 1.8em;
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    color: #000;
+}
+
+/* Paragraph styling for nutrition */
+#NutritionDetail p {
+    color: black;
+    font-size: 1.1em;
+    margin: 12px 0;
+    text-align: left;
+    padding-left: 20px;
+    position: relative;
+}
+
+#NutritionDetail p::before {
+    content: "•";
+    color: #ef476f;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Ingredients list styling */
+#IngredientsDetail ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#IngredientsDetail li {
+    font-size: 1.1em;
+    margin: 10px 0;
+    padding: 8px 15px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+#IngredientsDetail li:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Button styling */
+#IngredientsDetail .btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    margin-top: 25px;
+    background-color: #1d3557;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#IngredientsDetail .btn:hover {
+    background-color: #14213d;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    #NutritionDetail, #IngredientsDetail {
+        margin: 0 0 20px 0;
+    }
+}
+
+/* Light Gray Gradient Version */
+#Confirmation, #Summary {
+    background: linear-gradient(to bottom, #c0c0c0, #a0a0a0);
+    color: green; /* Dark gray text for contrast */
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin: 1rem 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #d0d0d0;
+}
+
+
+
+.download-btn {
+    font-size: 14px;
+    font-weight: 600;
+    background-color: #1d3557;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(74, 108, 247, 0.2);
+    width: fit-content;
+    text-align: right;
+    min-width: 100px;
+    margin-left: auto; 
+    display: block;
+}
+
+
+.download-btn:hover {
+    background-color: #1d3557;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(74, 108, 247, 0.3);
+}
+
+.download-btn i {
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+
+
+

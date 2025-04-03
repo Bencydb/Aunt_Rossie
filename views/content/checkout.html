@@ -1,0 +1,200 @@
+<!--<main>-->
+<div class="container">
+    <h1>Order Confirmation</h1>
+
+    <div class="confirmation-message">
+        <h3>Thank you for your order!</h3>
+        <h6>Your order has been placed successfully.</h6>
+    </div>
+
+    <div class="order-details-horizontal">
+        <div class="order-detail-pair">
+            <span class="order-detail-label">Order Number:</span>
+            <span id="order-number" class="order-detail-value">#10245</span>
+        </div>
+        <div class="order-detail-pair">
+            <span class="order-detail-label">Order Date:</span>
+            <span id="order-date" class="order-detail-value">June 15</span>
+        </div>
+    </div>
+
+    <div class="order-summary">
+        <h3>Order Summary</h3>
+        <table id="order-items">
+            <thead>
+            <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+            </thead>
+            <tbody id="order-items-body">
+            <!-- Items will be inserted here by JavaScript -->
+            </tbody>
+            <tfoot>
+            <tr class="total-row">
+                <td colspan="3">Total</td>
+                <td id="order-total"></td>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <div class="action-buttons">
+        <a href="/inventory" class="btn">Continue Shopping</a>
+        <a class="btn btn-secondary" id="print-btn"><i class="fa-regular fa-file-pdf"></i> Receipt</a>
+    </div>
+</div>
+
+<!--</main>-->
+
+<style>
+.container {
+        max-width: 800px;
+        margin: 2rem auto;
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(71, 17, 17, 0.1);
+        border-top: 4px solid #471111;
+    }
+
+    h1 {
+        color: #471111;
+        text-align: center;
+        margin-bottom: 30px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        font-size: 2.2rem;
+    }
+
+    .confirmation-message {
+        background-color: #fff07d;
+        padding: 20px;
+        border-radius: 6px;
+        margin-bottom: 30px;
+        text-align: center;
+        border-left: 4px solid #471111;
+    }
+
+    .confirmation-message h3 {
+        color: #471111;
+        margin-top: 0;
+    }
+
+    .order-details {
+        background: white;
+        padding: 20px;
+        border-radius: 6px;
+        margin-bottom: 30px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .order-details h3 {
+        color: #471111;
+        border-bottom: 2px solid #fff07d;
+        padding-bottom: 10px;
+        margin-top: 0;
+    }
+
+    .order-summary {
+        margin-bottom: 30px;
+    }
+
+    .order-summary h3 {
+        color: #471111;
+        border-bottom: 2px solid #fff07d;
+        padding-bottom: 10px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        background: white;
+    }
+
+    th {
+        background-color: #471111;
+        color: white;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-size: 0.9rem;
+    }
+
+    th, td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    tr:hover {
+        background-color: #fffdf0;
+    }
+
+    .total-row {
+        font-weight: bold;
+        background-color: #fffdf0;
+    }
+
+    .total-row td {
+        border-top: 2px solid #471111;
+        color: #471111;
+    }
+
+    .action-buttons {
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .btn {
+        padding: 12px 25px;
+        background-color: #471111;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+        margin: 0 10px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 5px rgba(71, 17, 17, 0.2);
+    }
+
+    .btn:hover {
+        background-color: #5a1a1a;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(71, 17, 17, 0.3);
+    }
+
+    .btn-secondary {
+        background-color: #fff07d;
+        color: #471111;
+    }
+
+    .btn-secondary:hover {
+        background-color: #ffe95e;
+        color: #471111;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        .container {
+            padding: 15px;
+        }
+
+        th, td {
+            padding: 10px;
+        }
+
+        .btn {
+            display: block;
+            margin: 10px auto;
+            width: 80%;
+        }
+    }
+</style>

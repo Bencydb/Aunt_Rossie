@@ -1,0 +1,25 @@
+<nav class="sidebar">
+    <a class="navbar-brand" href="/home">Aunt Rosie's <i class="fa-solid fa-cookie-bite"></i> </a>
+    <ul class="navbar-nav">
+        <li id="dashboard" class="nav-item">
+            <a class="nav-link" href="/dashboard"><i class="fa-solid fa-house"></i> Dashboard</a>
+        </li>
+        <li id="sales" class="nav-item">
+            <a class="nav-link" href="/sales"><i class="fa-solid fa-scale-unbalanced-flip"></i> Sales & Orders </a>
+        </li>
+        <li id="inventory" class="nav-item">
+            <a class="nav-link" href="/inventory"><i class="fa-solid fa-truck-moving"></i> Inventory</a>
+        </li>
+        <li id="employees" class="nav-item">
+            <a class="nav-link" href="/employees"><i class="fa-solid fa-user-tie"></i> Employees</a>
+        </li>
+    </ul>
+</nav>
+
+<script>
+    console.log("Header script is running");
+    const userSession = sessionStorage.getItem("user");
+    console.log("User Session Data:", userSession);
+
+</script>
+

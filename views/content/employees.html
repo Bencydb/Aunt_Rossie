@@ -1,0 +1,290 @@
+<!---->
+<main>
+<!-- Form for Adding Employees -->
+    <h1>Employee List</h1>
+    <div class="table-container">
+        <table id="employeeTable">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>SIN Number</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Biweekly Pay Table -->
+    <h1>Biweekly Pay Calculation</h1>
+    <div class="table-container">
+        <table id="payTable">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Hours</th>
+                <th>Pay Rate</th>
+                <th>Biweekly Pay</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Forms Container -->
+    <div class="forms-container">
+        <!-- Form for Adding Employees (Left) -->
+        <div class="form-container">
+            <h2 class="form-header">Add New Employee</h2>
+            <form id="addEmployeeForm">
+                <div class="form-group">
+                    <label for="emp_name">Name:</label>
+                    <input type="text" id="emp_name" name="emp_name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="emp_type">Type:</label>
+                    <input type="text" id="emp_type" name="emp_type" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="emp_hours">Hours:</label>
+                    <input type="number" id="emp_hours" name="emp_hours" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="emp_pay">Pay:</label>
+                    <input type="number" id="emp_pay" name="emp_pay" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="sin_num">SIN Number:</label>
+                    <input type="text" id="sin_num" name="sin_num" required>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit">Add Employee</button>
+                    <button type="button" id="clearFormBtn" class="clear-btn">Clear</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Form for Updating Employee Hours (Right) -->
+        <div class="form-container">
+            <h2 class="form-header">Update Employee Hours</h2>
+            <form id="updateHoursForm">
+                <div class="form-group">
+                    <label for="employee_id">Employee ID:</label>
+                    <input type="number" id="employee_id" name="employee_id" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="new_hours">New Hours:</label>
+                    <input type="number" id="new_hours" name="new_hours" required>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="update-btn">Update Hours</button>
+                    <button type="button" id="clearUpdateFormBtn" class="clear-btn">Clear</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+</main>
+<style>
+    :root {
+        --primary: #fff07d;
+        --success: #4cc9f0;
+        --warning: #f8961e;
+        --danger: #f72585;
+        --light: #f8f9fa;
+        --dark: #212529;
+        --border-radius: 8px;
+        --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        --transition: all 0.3s ease;
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+
+    h1 {
+        text-align: center;
+        margin: 25px 0;
+        color: var(--primary);
+        font-weight: 600;
+    }
+
+    .forms-container {
+        display: flex;
+        gap: 30px;
+        max-width: 1200px;
+        margin: 40px auto;
+        justify-content: center;
+    }
+
+    .form-container {
+        flex: 1;
+        min-width: 400px;
+        background: white;
+        padding: 30px;
+        border-radius: var(--border-radius);
+        box-shadow: var(--box-shadow);
+        transition: var(--transition);
+    }
+
+    .form-container:hover {
+        box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-header {
+        margin-bottom: 25px;
+        text-align: center;
+        color: var(--primary);
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: var(--dark);
+    }
+
+    input {
+        width: 100%;
+        padding: 12px 15px;
+        border: 1px solid #e0e0e0;
+        border-radius: var(--border-radius);
+        font-size: 1rem;
+        transition: var(--transition);
+    }
+
+    input:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+    }
+
+    .form-actions {
+        display: flex;
+        gap: 15px;
+        margin-top: 30px;
+    }
+
+    button {
+        flex: 1;
+        padding: 12px;
+        font-size: 1rem;
+        font-weight: 500;
+        border: none;
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        transition: var(--transition);
+    }
+
+    button:hover {
+        transform: translateY(-2px);
+    }
+
+    button[type="submit"] {
+        background: #2E8B57;
+        color: white;
+    }
+
+    button[type="submit"]:hover {
+        background: #3a56d4;
+    }
+
+    .clear-btn {
+        background: var(--warning);
+        color: white;
+    }
+
+    .clear-btn:hover {
+        background: #e08a1e;
+    }
+
+    .update-btn {
+        background: var(--success);
+        color: white;
+    }
+
+    .update-btn:hover {
+        background: #3ab5d8;
+    }
+
+    .table-container {
+        margin: 40px auto;
+        width: 90%;
+        overflow-x: auto;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        box-shadow: var(--box-shadow);
+        border-radius: var(--border-radius);
+        overflow: hidden;
+    }
+
+    th, td {
+        padding: 15px;
+        text-align: left;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    th {
+        background: #f8961e;
+        color: var(--primary);
+        font-weight: 600;
+    }
+
+    tr:hover {
+        background-color: #f8f9fa;
+    }
+
+    .delete-btn {
+        background: var(--danger);
+        color: white;
+        padding: 8px 15px;
+        border: none;
+        border-radius: var(--border-radius);
+        cursor: pointer;
+        transition: var(--transition);
+    }
+
+    .delete-btn:hover {
+        background: #e5177b;
+    }
+
+    @media (max-width: 900px) {
+        .forms-container {
+            flex-direction: column;
+        }
+
+        .form-container {
+            min-width: auto;
+        }
+
+        .table-container {
+            width: 100%;
+        }
+    }
+</style>
