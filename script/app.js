@@ -157,7 +157,7 @@
                 }
                 return;
             }
-            fetch(`http://localhost:5000/api/ingredients_orders/${orderId}`)
+            fetch(`https://aunt-rossie.onrender.com/api/ingredients_orders/${orderId}`)
                 .then(response => {
                 if (!response.ok) {
                     throw new Error(`HTTP error! Status: ${response.status}`);
@@ -226,7 +226,7 @@
     }
     function DisplayMenuPage() {
         console.log("DisplayMenuPage() Called..");
-        fetch("http://localhost:5000/api/product")
+        fetch("https://aunt-rossie.onrender.com/api/product")
             .then((response) => {
             if (!response.ok) {
                 throw new Error("Error fetching product data");
@@ -305,7 +305,7 @@
             piesTable.innerHTML = `<div class="alert alert-danger">Product ID not specified in URL</div>`;
             return;
         }
-        fetch(`http://localhost:5000/api/product/${productId}`)
+        fetch(`https://aunt-rossie.onrender.com/api/product/${productId}`)
             .then((response) => {
             if (!response.ok) {
                 throw new Error(`Error fetching product data: ${response.statusText}`);
@@ -385,7 +385,7 @@
         }
         const totalAmount = parseFloat(price) * qty;
         try {
-            const response = await fetch('http://localhost:5000/api/orders', {
+            const response = await fetch('https://aunt-rossie.onrender.com/api/orders', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -497,13 +497,13 @@
                 panel.innerHTML += `<p class="error">Error loading data</p>`;
             }
         }
-        fetchAndDisplay('daily-sales', 'http://localhost:5000/api/daily-sales', ['Date', 'Revenue', 'Orders', 'Items Sold'], (data) => data.map((d) => [
+        fetchAndDisplay('daily-sales', 'https://aunt-rossie.onrender.com/api/daily-sales', ['Date', 'Revenue', 'Orders', 'Items Sold'], (data) => data.map((d) => [
             new Date(d.Date).toLocaleDateString() || '-',
             d['Daily Revenue'] ? `$${parseFloat(d['Daily Revenue']).toFixed(2)}` : '-',
             d['Number of Orders'] || '-',
             d['Total Items Sold'] || '-'
         ]));
-        fetchAndDisplay('monthly-sales', 'http://localhost:5000/api/monthly-sales', ['Month', 'Revenue', 'Orders', 'Items Sold'], (data) => data.map((m) => {
+        fetchAndDisplay('monthly-sales', 'https://aunt-rossie.onrender.com/api/monthly-sales', ['Month', 'Revenue', 'Orders', 'Items Sold'], (data) => data.map((m) => {
             const date = m.Month ? new Date(m.Month) : null;
             const monthYear = date ?
                 `${date.toLocaleString('en-US', { month: 'long', timeZone: 'UTC' })} ${date.getUTCFullYear()}` :
@@ -515,7 +515,7 @@
                 m['Total Items Sold'] || '-'
             ];
         }));
-        fetchAndDisplay('top-products', 'http://localhost:5000/api/best-selling', ['Rank', 'Product', 'Quantity Sold', 'Revenue'], (data) => data.map((p, index) => [
+        fetchAndDisplay('top-products', 'https://aunt-rossie.onrender.com/api/best-selling', ['Rank', 'Product', 'Quantity Sold', 'Revenue'], (data) => data.map((p, index) => [
             (index + 1).toString(),
             p.product_name || '-',
             p['Total Quantity Sold'] || '-',
@@ -542,7 +542,7 @@
         }
         async function fetchNutritionalData(productId) {
             try {
-                const response = await fetch(`http://localhost:5000/api/nutritional/${productId}`);
+                const response = await fetch(`https://aunt-rossie.onrender.com/api/nutritional/${productId}`);
                 if (!response.ok) {
                     throw new Error("Nutritional data not found");
                 }
@@ -637,7 +637,7 @@
     function DisplayInventoryPage() {
         console.log("DisplayInventoryPage() Called..");
         let selectedIngredients = [];
-        fetch("http://localhost:5000/api/ingredients")
+        fetch("https://aunt-rossie.onrender.com/api/ingredients")
             .then(response => response.json())
             .then((data) => {
             const list = document.getElementById("ingredients-list");
@@ -743,7 +743,7 @@
                     console.log("Proceeding to checkout...");
                     try {
                         const orderPromises = selectedIngredients.map(ingredient => {
-                            return fetch("http://localhost:5000/api/ingredients_orders", {
+                            return fetch("https://aunt-rossie.onrender.com/api/ingredients_orders", {
                                 method: "POST",
                                 headers: {
                                     "Content-Type": "application/json",
@@ -888,7 +888,7 @@
             orderOutput.innerHTML = `<div class="alert alert-danger">Invalid order</div>`;
             return;
         }
-        fetch(`http://localhost:5000/api/orders/${orderId}`)
+        fetch(`https://aunt-rossie.onrender.com/api/orders/${orderId}`)
             .then(response => {
             if (!response.ok) {
                 throw new Error("Failed to fetch order details");

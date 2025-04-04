@@ -203,7 +203,7 @@ declare const jsPDF: any;
                 return;
             }
 
-            fetch(`http://localhost:5000/api/ingredients_orders/${orderId}`)
+            fetch(`https://aunt-rossie.onrender.com/api/ingredients_orders/${orderId}`)
                 .then(response => {
                     if (!response.ok) {
                         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -289,7 +289,7 @@ declare const jsPDF: any;
 
 
         // Fetch product data from the backend API
-        fetch("http://localhost:5000/api/product")
+        fetch("https://aunt-rossie.onrender.com/api/product")
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("Error fetching product data");
@@ -392,7 +392,7 @@ declare const jsPDF: any;
         }
 
         // Fetch specific product data from the backend API
-        fetch(`http://localhost:5000/api/product/${productId}`)
+        fetch(`https://aunt-rossie.onrender.com/api/product/${productId}`)
             .then((response) => {
                 if (!response.ok) {
                     throw new Error(`Error fetching product data: ${response.statusText}`);
@@ -483,7 +483,7 @@ declare const jsPDF: any;
         const totalAmount = parseFloat(price) * qty;
 
         try {
-            const response = await fetch('http://localhost:5000/api/orders', {
+            const response = await fetch('https://aunt-rossie.onrender.com/api/orders', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -630,7 +630,7 @@ declare const jsPDF: any;
         // Daily Sales
         fetchAndDisplay(
             'daily-sales',
-            'http://localhost:5000/api/daily-sales',
+            'https://aunt-rossie.onrender.com/api/daily-sales',
             ['Date', 'Revenue', 'Orders', 'Items Sold'],
             (data) => data.map((d: any) => [
                 new Date(d.Date).toLocaleDateString() || '-',
@@ -643,7 +643,7 @@ declare const jsPDF: any;
         // Monthly Sales
         fetchAndDisplay(
             'monthly-sales',
-            'http://localhost:5000/api/monthly-sales',
+            'https://aunt-rossie.onrender.com/api/monthly-sales',
             ['Month', 'Revenue', 'Orders', 'Items Sold'],
             (data) => data.map((m: any) => {
                 const date = m.Month ? new Date(m.Month) : null;
@@ -663,7 +663,7 @@ declare const jsPDF: any;
         // Top Products
         fetchAndDisplay(
             'top-products',
-            'http://localhost:5000/api/best-selling',
+            'https://aunt-rossie.onrender.com/api/best-selling',
             ['Rank', 'Product', 'Quantity Sold', 'Revenue'],
             (data) => data.map((p: any, index: number) => [
                 (index + 1).toString(),
@@ -708,7 +708,7 @@ declare const jsPDF: any;
 
         async function fetchNutritionalData(productId: string): Promise<Nutritional | null> {
             try {
-                const response = await fetch(`http://localhost:5000/api/nutritional/${productId}`);
+                const response = await fetch(`https://aunt-rossie.onrender.com/api/nutritional/${productId}`);
                 if (!response.ok) {
                     throw new Error("Nutritional data not found");
                 }
@@ -837,7 +837,7 @@ declare const jsPDF: any;
         let selectedIngredients: Array<{ name: string, price: number, quantity: number }> = [];
 
         // Fetch ingredients data from the API
-        fetch("http://localhost:5000/api/ingredients")
+        fetch("https://aunt-rossie.onrender.com/api/ingredients")
             .then(response => response.json())
             .then((data: Ingredient[]) => {
                 const list = document.getElementById("ingredients-list");
@@ -980,7 +980,7 @@ declare const jsPDF: any;
                     try {
                         // Create an array to store all the order promises
                         const orderPromises = selectedIngredients.map(ingredient => {
-                            return fetch("http://localhost:5000/api/ingredients_orders", {
+                            return fetch("https://aunt-rossie.onrender.com/api/ingredients_orders", {
                                 method: "POST",
                                 headers: {
                                     "Content-Type": "application/json",
@@ -1164,7 +1164,7 @@ declare const jsPDF: any;
         }
 
         // Fetch order details (optional)
-        fetch(`http://localhost:5000/api/orders/${orderId}`)
+        fetch(`https://aunt-rossie.onrender.com/api/orders/${orderId}`)
             .then(response => {
                 if (!response.ok) {
                     throw new Error("Failed to fetch order details");
